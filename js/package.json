@@ -1,16 +1,12 @@
 {
   "name": "uti-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Js Utilities",
   "main": "src/index.js",
   "dependencies": {
     "dayjs": "^1.7.7"
   },
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@git.ubudu.com:10022/GopherJ/UtiJs.git"
-  },
-  "keywords": [],
+  "keywords": ["utils"],
   "author": "Cheng JIANG",
   "license": "ISC"
 }

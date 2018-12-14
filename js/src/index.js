@@ -66,6 +66,7 @@ const uniqueWords = s => isEmptyString(s)
     ? Array.from(new Set(s.match(/(([a-zA-Z]{2,})|([aI]))/g)))
     : [];
 const percent = (v, t) => `${(v / t).toFixed(4) * 100}%`;
+const repeat = (c, n) => n >= -1 ? new Array(n + 1).join(c) : '';
 const noop = () => { };
 const upperFirstChar = s => s[0].toUpperCase() + s.substring(1);
 const diffOfSecs = (a, b) => !(isDate(a) && isDate(b))
@@ -128,6 +129,7 @@ module.exports = {
     uniqueWords,
     diffOfSecs,
     convTimeUnitCombToNum,
+    repeat,
     percent,
     noop,
     upperFirstChar,
