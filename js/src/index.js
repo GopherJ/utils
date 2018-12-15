@@ -87,16 +87,27 @@ const parseDate = s => {
         d,
     ] = matches.slice(1).map(x => +x);
 
-    if (!isNumber(m) && !isNumber(d)) {
-            return new Date(y, 0);
-    } else if (!isNumber(d)) {
-        return !isInRange([1, 12], m)
+    if (!isNumber(m) && !isNumber(d)) return new Date(y, 0);
+    else if (!isNumber(d)) return !isInRange([1, 12], m)
             ? new Error('Out Of Range')
             : new Date(y, m - 1, 0);
-    } else {
-        return !isInRange([1, lastDayOfMonth(y, m)], d) || !isInRange([1, 12], m)
+    else return !isInRange([1, lastDayOfMonth(y, m)], d) || !isInRange([1, 12], m)
             ? new Error('Out Of Range')
             : new Date(y, m - 1, d);
+};
+const swap = (input, i, j) => isArray(input) || isString(input)
+    ? ([input[i], input[j]] = [input[j], input[i]], input)
+    : noop();
+const randInt = (min, max) => Math.floor(Math.random(max - min + 1)) + min;
+const map = Array.prototype.map;
+const slice = Array.prototype.slice;
+const range = (min, max) => makeArray(max - min + 1).map((_, i) => i + 1);
+const execute = (task, n, ...args) => {
+    if (!isFunction(task)) return;
+
+    for (let i = 0; i < n; i += 1) {
+        if (isArrayAndHasLength(args)) task(...args);
+        else task();
     }
 };
 
@@ -135,6 +146,12 @@ module.exports = {
     upperFirstChar,
     isTheSameStrIgnoreCase,
     parseDate,
+    swap,
+    randInt,
+    map,
+    slice,
+    range,
+    execute,
 
     timeUnitMap,
     monthsMap
