@@ -1,6 +1,6 @@
 {
   "name": "uti-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Js Utilities",
   "main": "src/index.js",
   "dependencies": {

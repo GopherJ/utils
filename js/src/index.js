@@ -99,7 +99,7 @@ const parseDate = s => {
 const swap = (input, i, j) => isArray(input) || isString(input)
     ? ([input[i], input[j]] = [input[j], input[i]], input)
     : noop();
-const randInt = (min, max) => Math.floor(Math.random(max - min + 1)) + min;
+const randRange = (min, max) => Math.floor(Math.random(max - min + 1)) + min;
 const map = Array.prototype.map;
 const slice = Array.prototype.slice;
 const range = (min, max) => makeArray(max - min + 1).map((_, i) => i + 1);
@@ -162,7 +162,7 @@ module.exports = {
     isTheSameStrIgnoreCase,
     parseDate,
     swap,
-    randInt,
+    randRange,
     map,
     slice,
     range,

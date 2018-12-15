@@ -197,3 +197,84 @@ uti.isDate(new Date()) // true
   ```js
   uti.repeat('-', 3) // '---'
   ```
+
+- swap
+  ```js
+  uti.swap([1, 2, 3], 1, 2) // [1, 3, 2]
+  ```
+
+- randRange
+  ```js
+  uti.randRange(1, 5) // 3
+  ```
+
+- map
+  ```js
+  uti.map.call([1, 2], x => 2 * x) // [2, 4]
+  ```
+
+- slice
+  ```js
+  uti.slice.call([1, 2, 3], 0, 1) // 1
+  ```
+
+- range
+  ```js
+  uti.range(1, 5) // [1, 2, 3, 4, 5]
+  ```
+
+- execute
+  ```js
+  uti.execute(function(a, b) {console.log(a, b)}, 2, 1, 3)
+  // 1 3
+  // 1 3
+  ```
+
+- inherit
+  ```js
+  function List() {}
+  uti.inherit(List, Array)
+
+  const list = new List()
+  list.push(3)
+
+  console.log(list)
+  // List { '0': 1, length: 1}
+  ```
+
+- shuffle
+  ```js
+  uti.shuffle([1, 9, 8, 6])
+  // [9, 6, 8, 1]
+  ```
+
+- groupArr
+  ```js
+  const arr = [
+    {tag: 'one', content: 'A'},
+    {tag: 'one', content: 'B'},
+    {tag: 'two', content: 'C'},
+    {tag: 'two', content: 'D'},
+    {tag: 'three', content: 'E'},
+    {tag: 'three', content: 'F'}
+  ];
+
+  // group by the `tag` property
+  uti.groupArr(arr, 'tag')
+  /*
+  {
+    one: [
+        {tag: 'one', content: 'A'},
+        {tag: 'one', content: 'B'}
+    ],
+    two: [
+        {tag: 'two', content: 'C'},
+        {tag: 'two', content: 'D'}
+    ],
+    three: [
+        {tag: 'three', content: 'E'},
+        {tag: 'three', content: 'F'}
+    ]
+  }
+  */
+  ```
