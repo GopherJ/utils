@@ -4,9 +4,12 @@
   "description": "Js Utilities",
   "main": "src/index.js",
   "dependencies": {
-    "dayjs": "^1.7.7"
+    "dayjs": "^1.7.7",
+    "group-array": "^0.3.3"
   },
-  "keywords": ["utils"],
+  "keywords": [
+    "utils"
+  ],
   "author": "Cheng JIANG",
   "license": "ISC"
 }

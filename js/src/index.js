@@ -1,4 +1,5 @@
 const dayjs = require('dayjs');
+const groupArray = require('group-array');
 
 const timeUnitMap = {
     m: 60,
@@ -110,6 +111,20 @@ const execute = (task, n, ...args) => {
         else task();
     }
 };
+const inherit = (sub, sup) => isFunction(sub) && isFunction(sup)
+    ? sub.prototype.__proto__ = sup.prototype
+    : noop();
+const shuffle = arr => {
+    if (!isArrayAndHasLength(arr)) return;
+
+    let i = arr.length;
+    while (i-- > 0) {
+        swap(arr, i, randInt(0, arr.length - 1));
+    }
+};
+const groupArr = (arr, ...args)  => isArrayAndHasLength(arr)
+    ? groupArray(arr, ...args)
+    : noop();
 
 module.exports = {
     isString,
@@ -152,6 +167,9 @@ module.exports = {
     slice,
     range,
     execute,
+    inherit,
+    shuffle,
+    groupArr,
 
     timeUnitMap,
     monthsMap
