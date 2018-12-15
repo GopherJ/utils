@@ -125,6 +125,31 @@ const shuffle = arr => {
 const groupArr = (arr, ...args)  => isArrayAndHasLength(arr)
     ? groupArray(arr, ...args)
     : noop();
+const concat = (arr, ...items) => {
+    if (!isArray) return;
+
+    for (let i = 0, l = items.length; i < l; i += 1) {
+        const item = items[i];
+        if (isArrayAndHasLength(item)) arr.push(...item);
+        else arr.push(item);
+    }
+};
+const findMaxItemByProp = (arr, prop) => {
+    if (!isArrayAndHasLength(arr) || isUndefined(prop) || !isString(prop)) return;
+    let maxIdx = 0;
+    for(let i = 0, l = arr.length; i < l; i += 1) {
+        if (isObject(arr[i]) && isObject(arr[maxIdx]) && arr[i][prop] > arr[maxIdx][prop]) maxIdx = i;
+    }
+    return arr[maxIdx];
+};
+const findMinItemByProp = (arr, prop) => {
+    if (!isArrayAndHasLength(arr) || isUndefined(prop) || !isString(prop)) return;
+    let minIdx = 0;
+    for(let i = 0, l = arr.length; i < l; i += 1) {
+        if (isObject(arr[i]) && isObject(arr[minIdx]) && arr[i][prop] < arr[minIdx][prop]) minIdx = i;
+    }
+    return arr[minIdx];
+};
 
 module.exports = {
     isString,
@@ -170,6 +195,9 @@ module.exports = {
     inherit,
     shuffle,
     groupArr,
+    concat,
+    findMaxItemByProp,
+    findMinItemByProp,
 
     timeUnitMap,
     monthsMap
